@@ -25,9 +25,8 @@
 				<key>title</key>
 				<string>CheckWard</string>
 				<key>subtitle</key>
-				<string>IOS</string>
-				<key>CFBundleName</key>
-				<string>IOS1</string>
+				<string>CheckWard</string>
+				 
 			</dict>
 		</dict>
 	</array>
