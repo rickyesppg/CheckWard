@@ -24,6 +24,8 @@
 				<string>software</string>
 				<key>title</key>
 				<string>CheckWard</string>
+				<key>subtitle</key>
+				<string>CheckWard</string>
 			</dict>
 		</dict>
 	</array>
