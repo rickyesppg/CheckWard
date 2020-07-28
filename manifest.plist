@@ -11,19 +11,19 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://www.imrick.cn/jysw/SynergyTalk.ipa</string>
+					<string>https://github.com/rickyesppg/CheckWard/blob/master/SynergyTalk.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>display-image</string>
 					<key>url</key>
-					<string>https://www.imrick.cn/jysw/images/im57x57.png</string>
+					<string>https://github.com/rickyesppg/CheckWard/blob/master/im57.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>https://www.imrick.cn/jysw/images/im512x512.png</string>
+					<string>https://github.com/rickyesppg/CheckWard/blob/master/im512.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
