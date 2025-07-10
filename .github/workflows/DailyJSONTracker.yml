@@ -17,6 +17,9 @@ on:
         description: 'Space-separated ISO country codes'
         required: false
         default: 'us cn jp'
+        
+permissions:        # ⬅️ 新增
+  contents: write   # ⬅️ 关键，允许 push
 
 /*------------- 作业 -------------*/
 jobs:
