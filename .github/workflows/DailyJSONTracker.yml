@@ -1,69 +1,70 @@
-name: Daily App-Price JSON Tracker (Dynamic Inputs)
+name: Daily App-Price JSON Tracker (one file per App)
 
 on:
-  # ① 定时触发：每天 02:02 UTC
   schedule:
-    - cron: '2 2 * * *'
-
-  # ② 手动触发：可自定义参数
+    - cron: '2 2 * * *'          # 每天 02:02 UTC
   workflow_dispatch:
     inputs:
       app_ids:
-        description: 'Space-separated App Store numeric IDs'
+        description: 'Space-separated App IDs'
         required: false
         default: '414478124 544007664 1315744137'
       countries:
-        description: 'Space-separated ISO country codes'
+        description: 'Space-separated ISO codes'
         required: false
         default: 'us cn jp'
 
-permissions:        # 允许工作流向仓库提交文件
-  contents: write
+permissions:
+  contents: write                # 允许自动 push
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    concurrency:             # 防止同一分支并发
+    concurrency:
       group: price-json-${{ github.ref }}
       cancel-in-progress: true
 
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Install jq
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y jq
+    - name: Install jq
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y jq
 
-      - name: Fetch & append prices (多 ID × 多区)
-        env:
-          # 如果手动触发传了 inputs 就用它，否则用默认值
-          APP_IDS: ${{ github.event.inputs.app_ids     || '414478124 544007664 1315744137' }}
-          COUNTRY_LIST: ${{ github.event.inputs.countries || 'us cn jp' }}
-        run: |
-          set -e
-          TODAY=$(date -u '+%F')
+    - name: Fetch prices & append to one file per App
+      env:
+        APP_IDS: ${{ github.event.inputs.app_ids   || '414478124 544007664 1315744137' }}
+        COUNTRY_LIST: ${{ github.event.inputs.countries || 'us cn jp' }}
+      run: |
+        set -e
+        TODAY=$(date -u '+%F')
 
-          for APP_ID in ${APP_IDS}; do
-            echo "==== ${APP_ID} ===="
-            for CC in ${COUNTRY_LIST}; do
-              echo "► ${CC}"
-              curl -sS "https://itunes.apple.com/lookup?id=${APP_ID}&country=${CC}" -o resp.json
+        for APP_ID in $APP_IDS; do
+          echo "=== ${APP_ID} ==="
+          FILE="price_${APP_ID}.json"
 
-              PRICE=$(jq -r '.results[0].price // .results[0].trackPrice // 0' resp.json)
-              CUR=$(jq -r '.results[0].currency // .results[0].currencyCode // "USD"' resp.json)
-              FILE="price_${APP_ID}_${CC}.json"
+          # 如果文件不存在，先建一个空数组
+          [ -f "$FILE" ] || echo "[]" > "$FILE"
 
-              if [ -f "$FILE" ]; then
-                jq --arg d "$TODAY" --argjson p "$PRICE" --arg c "$CUR" \
-                   '. += [{"date":$d,"price":$p,"currency":$c}]' "$FILE" > tmp && mv tmp "$FILE"
-              else
-                echo "[{\"date\":\"$TODAY\",\"price\":$PRICE,\"currency\":\"$CUR\"}]" > "$FILE"
-              fi
-            done
+          for CC in $COUNTRY_LIST; do
+            echo "→ ${CC}"
+            curl -sS "https://itunes.apple.com/lookup?id=${APP_ID}&country=${CC}" -o resp.json
+
+            PRICE=$(jq -r '.results[0].price // .results[0].trackPrice // 0' resp.json)
+            CUR=$(jq -r '.results[0].currency // .results[0].currencyCode // "USD"' resp.json)
+
+            # 追加记录：{date,country,price,currency}
+            jq --arg d "$TODAY" \
+               --arg c "$CC" \
+               --argjson p "$PRICE" \
+               --arg cu "$CUR" \
+               '. += [{"date":$d,"country":$c,"price":$p,"currency":$cu}]' \
+               "$FILE" > tmp && mv tmp "$FILE"
           done
+        done
 
-      - uses: EndBug/add-and-commit@v9
-        with:
-          add: 'price_*.json'
-          message: "chore: update prices on $(date -u '+%F')"
+    - uses: EndBug/add-and-commit@v9
+      with:
+        add: 'price_*.json'
+        message: "chore: update prices on $(date -u '+%F')"
