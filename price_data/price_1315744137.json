@@ -34,5 +34,23 @@
     "country": "jp",
     "price": 800.00,
     "currency": "JPY"
+  },
+  {
+    "date": "2025-07-14",
+    "country": "us",
+    "price": 4.99,
+    "currency": "USD"
+  },
+  {
+    "date": "2025-07-14",
+    "country": "cn",
+    "price": 38.00,
+    "currency": "CNY"
+  },
+  {
+    "date": "2025-07-14",
+    "country": "jp",
+    "price": 800.00,
+    "currency": "JPY"
   }
 ]
