@@ -394,5 +394,23 @@
     "country": "jp",
     "price": 0.00,
     "currency": "JPY"
+  },
+  {
+    "date": "2025-08-03",
+    "country": "us",
+    "price": 0.00,
+    "currency": "USD"
+  },
+  {
+    "date": "2025-08-03",
+    "country": "cn",
+    "price": 0.00,
+    "currency": "CNY"
+  },
+  {
+    "date": "2025-08-03",
+    "country": "jp",
+    "price": 0.00,
+    "currency": "JPY"
   }
 ]
