@@ -1,23 +1,5 @@
 [
   {
-    "date": "2025-11-21",
-    "country": "us",
-    "price": 4.99,
-    "currency": "USD"
-  },
-  {
-    "date": "2025-11-21",
-    "country": "cn",
-    "price": 38.00,
-    "currency": "CNY"
-  },
-  {
-    "date": "2025-11-21",
-    "country": "jp",
-    "price": 800.00,
-    "currency": "JPY"
-  },
-  {
     "date": "2025-11-22",
     "country": "us",
     "price": 4.99,
@@ -553,6 +535,24 @@
   },
   {
     "date": "2025-12-21",
+    "country": "jp",
+    "price": 800.00,
+    "currency": "JPY"
+  },
+  {
+    "date": "2025-12-22",
+    "country": "us",
+    "price": 4.99,
+    "currency": "USD"
+  },
+  {
+    "date": "2025-12-22",
+    "country": "cn",
+    "price": 38.00,
+    "currency": "CNY"
+  },
+  {
+    "date": "2025-12-22",
     "country": "jp",
     "price": 800.00,
     "currency": "JPY"
