@@ -1,41 +1,5 @@
 [
   {
-    "date": "2026-06-08",
-    "country": "us",
-    "price": 0.00,
-    "currency": "USD"
-  },
-  {
-    "date": "2026-06-08",
-    "country": "cn",
-    "price": 0.00,
-    "currency": "CNY"
-  },
-  {
-    "date": "2026-06-08",
-    "country": "jp",
-    "price": 0.00,
-    "currency": "JPY"
-  },
-  {
-    "date": "2026-06-09",
-    "country": "us",
-    "price": 0.00,
-    "currency": "USD"
-  },
-  {
-    "date": "2026-06-09",
-    "country": "cn",
-    "price": 0.00,
-    "currency": "CNY"
-  },
-  {
-    "date": "2026-06-09",
-    "country": "jp",
-    "price": 0.00,
-    "currency": "JPY"
-  },
-  {
     "date": "2026-06-10",
     "country": "us",
     "price": 0.00,
@@ -553,6 +517,24 @@
   },
   {
     "date": "2026-07-08",
+    "country": "jp",
+    "price": 0.00,
+    "currency": "JPY"
+  },
+  {
+    "date": "2026-07-10",
+    "country": "us",
+    "price": 0.00,
+    "currency": "USD"
+  },
+  {
+    "date": "2026-07-10",
+    "country": "cn",
+    "price": 0.00,
+    "currency": "CNY"
+  },
+  {
+    "date": "2026-07-10",
     "country": "jp",
     "price": 0.00,
     "currency": "JPY"
