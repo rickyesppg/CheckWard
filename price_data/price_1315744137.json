@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-06-15",
-    "country": "us",
-    "price": 4.99,
-    "currency": "USD"
-  },
-  {
-    "date": "2026-06-15",
-    "country": "cn",
-    "price": 38.00,
-    "currency": "CNY"
-  },
-  {
-    "date": "2026-06-15",
-    "country": "jp",
-    "price": 800.00,
-    "currency": "JPY"
-  },
-  {
     "date": "2026-06-16",
     "country": "us",
     "price": 4.99,
@@ -535,6 +517,24 @@
   },
   {
     "date": "2026-07-15",
+    "country": "jp",
+    "price": 800.00,
+    "currency": "JPY"
+  },
+  {
+    "date": "2026-07-16",
+    "country": "us",
+    "price": 4.99,
+    "currency": "USD"
+  },
+  {
+    "date": "2026-07-16",
+    "country": "cn",
+    "price": 38.00,
+    "currency": "CNY"
+  },
+  {
+    "date": "2026-07-16",
     "country": "jp",
     "price": 800.00,
     "currency": "JPY"
